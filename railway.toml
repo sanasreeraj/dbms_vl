@@ -1,0 +1,12 @@
+[build]
+builder = "nixpacks"
+buildCommand = "npm run build"
+
+[deploy]
+startCommand = "gunicorn backend.app:app"
+healthcheckPath = "/"
+healthcheckTimeout = 100
+restartPolicyType = "on_failure"
+
+[deploy.railway]
+PORT = 5000 
